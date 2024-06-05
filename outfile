@@ -1,0 +1,8 @@
+total 32
+-rw-r--r-- 1 camurill 2023_barcelona     5 Jun  5 15:13 file1
+drwxr-xr-x 3 camurill 2023_barcelona    19 Jun  5 13:56 libreries
+-rw-r--r-- 1 camurill 2023_barcelona  1074 Jun  5 14:02 main.c
+-rw-r--r-- 1 camurill 2023_barcelona  1713 Jun  5 13:57 Makefile
+-rw-r--r-- 1 camurill 2023_barcelona     0 Jun  5 15:14 outfile
+-rwxr-xr-x 1 camurill 2023_barcelona 16000 Jun  5 14:02 pipex
+-rw-r--r-- 1 camurill 2023_barcelona  1125 Jun  5 14:00 pipex.h
