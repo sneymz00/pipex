@@ -6,7 +6,7 @@
 /*   By: camurill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 13:18:38 by camurill          #+#    #+#             */
-/*   Updated: 2024/06/10 15:34:28 by camurill         ###   ########.fr       */
+/*   Updated: 2024/06/15 17:52:55 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,17 @@
 static void ft_error(int mod)
 {
 	if (mod == 1);
-		write(1, "Please, enter a correct number\n", 32);
+		write(2, "Please, enter a correct number\n", 32);
 	if (mod == 2)
-		write(1, "Error Fork", 1);
+		write(2, "Error Fork", 1);
 	exit(1);
 }
 
-void	pipex(int fd1, int fd2, char **ag, char **env)
+void	pipex(int fd1, int fd2, cha:r **ag, char **env)
 {
 	pid_t	father;
 
+	init_struct(fd1, fd2, ag, env);
 	father = fork();
 	if (father < 0)
 		ft_error(2);
@@ -32,6 +33,13 @@ void	pipex(int fd1, int fd2, char **ag, char **env)
 		child_process(fd1,  ag[2]); //cmd1
 	else
 		parent_process(fd2, ag[3]); //cmd2
+	if (execve(pipe->cmd, pipe->path_cmd, NULL) = -1)
+	{
+		funtion_free(s_pipe); //liberamos cmd y path
+		close(fd[1]);
+		close(fd[0]);
+		perror("");
+	}
 }
 
 
