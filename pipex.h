@@ -6,7 +6,7 @@
 /*   By: camurill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 13:25:52 by camurill          #+#    #+#             */
-/*   Updated: 2024/06/15 22:00:30 by camurill         ###   ########.fr       */
+/*   Updated: 2024/06/16 01:12:15 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdio.h>
+# include <fcntl.h>
 # include <stdbool.h>
 # include <stdlib.h>
 # include <sys/types.h>
@@ -23,30 +24,24 @@
 # include<sys/stat.h>
 # include "libreries/libft/libft.h"
 
-typedef struct s_pipe{
-	char	**cmd;
-	char	**path_cmd;
-	
-	int		fd1; //ag[1]
-	int		fd2; //ag[4]
-	char	command1; //ag[2]
-	char	command2; //ag[3]
-}			t_pipe;
-
-
-/**MAIN**/
-
 /**UTILS**/
-t_pipe	init_process(int fd1, int fd2, char **ag, char **env);
+char	*get_env(char **env, char *name);
+char	*get_path(char *cmd, char **env);
+int		open_file(char *ag, int type);
 
 /**PROCESS**/
-void	child_pocess(int *fd, char **ag, char **env);
+void	funtion_exe(char *ag, char **env);
+void	child_process(int *fd, char **ag, char **env);
 void	parent_process(int *fd, char **ag, char **env);
 
 /**ERROR**/
 void	ft_error(int mod);
+void	free_matrix(char **matrix);
 
 /**LIBFT**/
 char	**ty_split(const char *text, char separate);
+char	*my_strjoin(const char *s1, const char *s2);
+int		my_strcmp(char *cmp, char *src);
+
 
 #endif

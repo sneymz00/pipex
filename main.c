@@ -6,7 +6,7 @@
 /*   By: camurill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 13:18:38 by camurill          #+#    #+#             */
-/*   Updated: 2024/06/15 21:59:26 by camurill         ###   ########.fr       */
+/*   Updated: 2024/06/16 01:10:22 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void ft_error(int mod)
 {
-	if (mod == 1);
+	if (mod == 1)
 		write(2, "Please, enter a correct number\n", 32);
 	else if (mod == 2)
 		write(2, "Error Fork", 1);
