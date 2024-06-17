@@ -6,7 +6,7 @@
 /*   By: camurill <camurill@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 19:37:37 by camurill          #+#    #+#             */
-/*   Updated: 2024/06/16 01:30:36 by camurill         ###   ########.fr       */
+/*   Updated: 2024/06/17 20:05:44 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,11 @@ char **ty_split(const char *text, char separate)
 	split = malloc(sizeof(char *) * (size + 1));
 	if (!split)
 		return (NULL);
-	while (size-- >= 0)
+	while (size > 0)
+	{
 		split[i++] = ft_separated(text, separate);
+		size--;
+	}
 	split[i] = NULL;
 	return (split);
 }

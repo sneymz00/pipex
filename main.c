@@ -6,7 +6,7 @@
 /*   By: camurill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 13:18:38 by camurill          #+#    #+#             */
-/*   Updated: 2024/06/16 01:10:22 by camurill         ###   ########.fr       */
+/*   Updated: 2024/06/17 20:09:05 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void ft_error(int mod)
 	else if (mod == 2)
 		write(2, "Error Fork", 1);
 	else if (mod == 3)
-		perror("Error: ");
+		write(2, "Error: ", 8);
 	exit(1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: camurill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 13:25:52 by camurill          #+#    #+#             */
-/*   Updated: 2024/06/16 01:12:15 by camurill         ###   ########.fr       */
+/*   Updated: 2024/06/17 19:11:34 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	parent_process(int *fd, char **ag, char **env);
 
 /**ERROR**/
 void	ft_error(int mod);
-void	free_matrix(char **matrix);
+void	free_mat(char **matrix);
 
 /**LIBFT**/
 char	**ty_split(const char *text, char separate);
