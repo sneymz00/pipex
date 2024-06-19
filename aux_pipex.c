@@ -6,7 +6,7 @@
 /*   By: camurill <camurill@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 22:56:25 by camurill          #+#    #+#             */
-/*   Updated: 2024/06/17 20:22:26 by camurill         ###   ########.fr       */
+/*   Updated: 2024/06/19 16:46:43 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,28 +69,27 @@ char	*get_path(char *cmd, char **env)
 	char	*exec;
 	char	**path_total;
 	char	*path_aux;
-	char	**tmp;
+	char	**aux;
 
-	i = -1;
-	path_total = ty_split(get_env(env, "PATH"), ':'); //get PATHH
-	printf("%s\n%s\n%s\n", path_total[0], path_total[1], cmd);
-	tmp = ty_split(cmd, ' '); // optimized
-	printf("%s\n%s\n holla", tmp[0], tmp[1]);
-	while (path_total[++i])
+	i = 0;
+	path_total = ty_split(get_env(env, "PATH"), ':');
+	aux = ty_split(cmd, ' ');
+	printf("%sfffff%s\n", aux[0], cmd);
+	while (path_total[i])
 	{
 		path_aux = my_strjoin(path_total[i], "/");
-		exec = my_strjoin(path_aux, tmp[0]);
-		printf("%s", exec);
+		exec = my_strjoin(path_aux, aux[0]);
 		if (access(exec, F_OK) == 0 && access(exec, X_OK) == 0)
 		{
-			free_mat(tmp);
+			free_mat(aux);
 			return (exec);
 		}
+		i++;
 		free(exec);
 	}
 	//exit(1); //tester
 	free_mat(path_total);
-	free_mat(tmp);
+	free_mat(aux);
 	return (cmd);
 }
 /*

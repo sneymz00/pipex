@@ -1,6 +1,1 @@
-/camurill/bin
-/usr/local/sbin
-wc
-_ID
-(null)
- holla(null)(null)(null)(null)(null)(null)(null)(null)(null)(null)
+9

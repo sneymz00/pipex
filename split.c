@@ -5,94 +5,101 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: camurill <camurill@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/15 19:37:37 by camurill          #+#    #+#             */
-/*   Updated: 2024/06/17 20:05:44 by camurill         ###   ########.fr       */
+/*   Created: 2024/06/19 17:39:32 by camurill          #+#    #+#             */
+/*   Updated: 2024/06/19 17:40:28 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-static int	count_word(char const *text, char separate)
+static int	ft_cword(char const *s, char c)
 {
-	bool	inside;
-	int		count;
+	int	i;
+	int	count;
 
+	i = 0;
 	count = 0;
-	while (*text)
+	if (s[0] != c && s[0])
 	{
-		inside = false;
-		while (*text == separate && *text)
-			text++;
-		while (*text != separate && *text)
-		{
-			if (!inside)
-			{
-				count++;
-				inside = true;
-			}
-			text++;
-		}
+		count++;
+		i++;
+	}
+	while (s[i])
+	{
+		while (s[i] == c && s[i + 1])
+			i++;
+		if (s[i] != c && s[i - 1] == c && s[i])
+			count++;
+		i++;
 	}
 	return (count);
 }
 
-static char	*ft_separated(const char *text, char s)
+static char	*ft_dupchar(char const *s, char c, int *pos)
 {
-	static int	sep = 0;
-	int			i;
-	int			len;
-	char		*final;
+	int		i;
+	int		len;
+	char	*dup;
 
 	i = 0;
 	len = 0;
-	while (text[sep] == s && text[sep])
-		sep++;
-	while ((text[sep + len] != s) && text[sep + len])
+	while (*s == c)
+	{
+		s++;
+		(*pos)++;
+	}
+	while (s[len] && s[len] != c)
 		len++;
-	final = malloc(sizeof(char) * (len + 1));
-	if (!final)
-		return (NULL);
-	while (text[sep] != s && text[sep])
-		final[i++] = text[sep++];
-	final[i] = '\0';
-	return (final);
+	dup = malloc(sizeof(char) * (len + 1));
+	if (!dup)
+		return (0);
+	while (i < len)
+	{
+		dup[i] = *s;
+		i++;
+		s++;
+	}
+	dup[i] = '\0';
+	*pos += i;
+	return (dup);
 }
 
-char **ty_split(const char *text, char separate)
+static char	**ft_free(char **s, int n)
 {
-	char	**split;
-	int		i;
-	int		size;
+	int	i;
 
 	i = 0;
-	size = 0;
-	if (!text)
+	while (i < n)
+	{
+		free(s[i]);
+		i++;
+	}
+	free(s);
+	return (NULL);
+}
+
+char	**ty_split(char const *s, char c)
+{
+	int		i;
+	int		count;
+	char	**split;
+	int		pos;
+
+	if (!s)
 		return (NULL);
-	size = count_word(text, separate);
-	split = malloc(sizeof(char *) * (size + 1));
+	i = 0;
+	pos = 0;
+	count = ft_cword(s, c);
+	split = malloc(sizeof(char *) * (count + 1));
 	if (!split)
 		return (NULL);
-	while (size > 0)
+	while (i < count)
 	{
-		split[i++] = ft_separated(text, separate);
-		size--;
+		split[i] = ft_dupchar(s + pos, c, &pos);
+		if (split[i] == NULL)
+			return (ft_free(split, i));
+		i++;
 	}
 	split[i] = NULL;
 	return (split);
 }
-/*
-int main()
-{
-	int i = 0;
-	char **split;
-	char str[120] = "/home/camurill/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin";
-	split = ty_split(str, ':');
-	while (1)
-	{
-		printf("%s\n", split[i]);
-		i++;
-		if (split[i] == NULL)
-			break ;
-	}
-	return (0);
-}*/

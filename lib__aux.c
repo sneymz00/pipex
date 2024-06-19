@@ -6,7 +6,7 @@
 /*   By: camurill <camurill@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 23:05:24 by camurill          #+#    #+#             */
-/*   Updated: 2024/06/16 00:03:29 by camurill         ###   ########.fr       */
+/*   Updated: 2024/06/19 18:03:48 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,14 @@ char	*my_strjoin(const char *s1, const char *s2)
 	char	*dst;
 	size_t	i;
 	size_t	j;
+	size_t	x;
 
 	if (!s1 || !s2)
 		return (0);
 	i = 0;
-	dst = malloc (sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (dst)
+	printf("%li", ft_strlen(s1));
+	dst = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!dst)
 		return (NULL);
 	while (s1[i])
 	{
