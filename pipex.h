@@ -6,7 +6,7 @@
 /*   By: camurill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 13:25:52 by camurill          #+#    #+#             */
-/*   Updated: 2024/06/17 19:11:34 by camurill         ###   ########.fr       */
+/*   Updated: 2024/06/19 19:12:49 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 # include <stdlib.h>
 # include <sys/types.h>
 # include <sys/wait.h>
-# include<sys/types.h>
-# include<sys/stat.h>
+# include <sys/types.h>
+# include <sys/stat.h>
 # include "libreries/libft/libft.h"
 
 /**UTILS**/
@@ -42,6 +42,5 @@ void	free_mat(char **matrix);
 char	**ty_split(const char *text, char separate);
 char	*my_strjoin(const char *s1, const char *s2);
 int		my_strcmp(char *cmp, char *src);
-
 
 #endif

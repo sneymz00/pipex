@@ -6,13 +6,13 @@
 /*   By: camurill <camurill@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 23:05:24 by camurill          #+#    #+#             */
-/*   Updated: 2024/06/19 18:03:48 by camurill         ###   ########.fr       */
+/*   Updated: 2024/06/19 19:09:31 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int		my_strcmp(char *cmp, char *src)
+int	my_strcmp(char *cmp, char *src)
 {
 	size_t	i;
 

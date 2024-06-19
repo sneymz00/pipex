@@ -6,7 +6,7 @@
 /*   By: camurill <camurill@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 14:56:08 by camurill          #+#    #+#             */
-/*   Updated: 2024/06/19 19:01:54 by camurill         ###   ########.fr       */
+/*   Updated: 2024/06/19 19:10:56 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,9 @@ void	funtion_exe(char *ag, char **env)
 	}
 }
 
-
 void	child_process(int *p_fd, char **ag, char **env)
 {
-	int fd;
+	int	fd;
 
 	fd = open_file(ag[1], 0);
 	if (dup2(fd, STDIN_FILENO) < 0)
