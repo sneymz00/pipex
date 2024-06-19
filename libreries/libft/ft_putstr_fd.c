@@ -6,7 +6,7 @@
 /*   By: camurill <camurill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 17:42:14 by camurill          #+#    #+#             */
-/*   Updated: 2024/06/19 18:40:15 by camurill         ###   ########.fr       */
+/*   Updated: 2024/06/19 19:02:58 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,3 +25,4 @@ void	ft_putstr_fd(char *s, int fd)
 		i++;
 	}
 }
+//write(fd, s, ft_strlen(s));
