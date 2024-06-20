@@ -1,61 +1,67 @@
-################################:###############################################
-#				STANDARS				      #
+###############################################################################
+#								STANDARS	 								  #
 ###############################################################################
 NAME 		= 		pipex
-RM 		= 		rm -rf
+RM 			= 		rm -rf
 LIBFT		=		libreries/libft/libft.a
+LIBFT_DIR	=		lbreries/libft/
 OBJS		= 		obj/
+SRC_DIR		=		src/
 
 ###############################################################################
-#				COMPILER				      #
+#								COMPILER	  								  #
 ###############################################################################
 
-CC 		= 		gcc -g
-CCFLAGS		= 		#-Wall -Wextra -Werror
+CC 			= 		gcc
+CCFLAGS		= 		-Wall -Wextra -Werror 
 
 ###############################################################################
-#				SRC					      #
+#									SRC    									  #
 ###############################################################################
 
-SRC 	= 	main.c aux_pipex.c pipex_utils.c split.c lib__aux.c
+SRC 		= 		$(SRC_DIR)main.c\
+								$(SRC_DIR)aux_pipex.c\
+								$(SRC_DIR)lib__aux.c\
+								$(SRC_DIR)pipex_utils.c\
+								$(SRC_DIR)split.c\
 
 ###############################################################################
-#				SRC BONUS	   	     		      #
+#								INLUDES	      								  #
 ###############################################################################
 
-
-
-###############################################################################
-#				INLUDES					      #
-###############################################################################
-
-INLUDE  = pipex.h
-OBJ_DIR = $(patsubst %.c, $(OBJS)%.o, $(SRC))
+INCLUDE  = pipex.h
+OBJ_DIR = $(patsubst $(SRC_DIR)%.c, $(OBJS)%.o, $(SRC))
 
 ###############################################################################
-#				RULES					      #
+#								RULES	      								  #
 ###############################################################################
 
-all: $(NAME)
+all:
+	@make -C libreries/libft --no-print-directory
+	@make $(NAME) --no-print-directory
 
-$(NAME): $(OBJ_DIR) $(LIBFT)
-	$(CC) $(CCFLAGS) $(OBJ_DIR) $(LIBFT) -o $(NAME)  
+$(NAME):: $(OBJ_DIR) $(LIBFT)
+	@echo "Compiling $<"
+	@$(CC) $(CCFLAGS) $(OBJ_DIR) $(LIBFT) -o $(NAME)
+$(NAME)::
+	@echo "Pipex compiled"
 
-$(OBJS)%.o: %.c Makefile pipex.h
+$(OBJS)%.o: $(SRC_DIR)%.c Makefile $(INCLUDE) $(LIBFT) 
+	@echo "Compiling $<"
 	@mkdir -p $(OBJS)
-	@make -C libreries/libft
-	$(CC) $(CCFLAGS) -c $< -o $@
+	@$(CC) $(CCFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJS)
+	@echo "Cleaning up..."
+	@$(RM) $(OBJS)
 	@make -C libreries/libft clean --no-print-directory
 
 fclean: clean
-	$(RM) $(NAME)
+	@echo "Cleaning file..."
+	@$(RM) $(NAME)
 
 re: fclean all
 
 rebonus: fclean bonus
 
 .PHONY: all clean fclean re
-

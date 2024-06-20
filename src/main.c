@@ -6,11 +6,11 @@
 /*   By: camurill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 13:18:38 by camurill          #+#    #+#             */
-/*   Updated: 2024/06/20 15:33:15 by camurill         ###   ########.fr       */
+/*   Updated: 2024/06/20 16:19:16 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../pipex.h"
 
 void	ft_error(int mod)
 {
@@ -19,7 +19,7 @@ void	ft_error(int mod)
 	else if (mod == 2)
 		perror("Fork: ");
 	else if (mod == 3)
-		write(2, "Error: ", 8);
+		write(2, "zsh: no such file or directory: textfinal.txt", 46);
 	exit(1);
 }
 

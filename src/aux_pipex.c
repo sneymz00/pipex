@@ -6,11 +6,11 @@
 /*   By: camurill <camurill@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 22:56:25 by camurill          #+#    #+#             */
-/*   Updated: 2024/06/20 15:53:23 by camurill         ###   ########.fr       */
+/*   Updated: 2024/06/20 16:05:53 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../pipex.h"
 
 void	free_mat(char **matrix)
 {

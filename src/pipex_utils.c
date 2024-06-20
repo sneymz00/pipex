@@ -6,11 +6,11 @@
 /*   By: camurill <camurill@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 14:56:08 by camurill          #+#    #+#             */
-/*   Updated: 2024/06/20 13:29:59 by camurill         ###   ########.fr       */
+/*   Updated: 2024/06/20 16:06:26 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../pipex.h"
 
 void	funtion_exe(char *ag, char **env)
 {

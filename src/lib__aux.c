@@ -6,11 +6,11 @@
 /*   By: camurill <camurill@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 23:05:24 by camurill          #+#    #+#             */
-/*   Updated: 2024/06/20 15:49:47 by camurill         ###   ########.fr       */
+/*   Updated: 2024/06/20 16:06:02 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../pipex.h"
 
 int	my_strcmp(char *cmp, char *src)
 {

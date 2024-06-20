@@ -6,11 +6,11 @@
 /*   By: camurill <camurill@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 17:39:32 by camurill          #+#    #+#             */
-/*   Updated: 2024/06/19 17:40:28 by camurill         ###   ########.fr       */
+/*   Updated: 2024/06/20 16:06:35 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../pipex.h"
 
 static int	ft_cword(char const *s, char c)
 {
