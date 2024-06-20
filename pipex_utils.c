@@ -6,7 +6,7 @@
 /*   By: camurill <camurill@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 14:56:08 by camurill          #+#    #+#             */
-/*   Updated: 2024/06/19 19:10:56 by camurill         ###   ########.fr       */
+/*   Updated: 2024/06/20 13:29:59 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	funtion_exe(char *ag, char **env)
 		write(2, "pipex: command not found: ", 27);
 		ft_putendl_fd(aux[0], 2);
 		free_mat(aux);
-		exit(0);
+		exit(130);
 	}
 }
 

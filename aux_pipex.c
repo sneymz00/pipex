@@ -6,7 +6,7 @@
 /*   By: camurill <camurill@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 22:56:25 by camurill          #+#    #+#             */
-/*   Updated: 2024/06/19 19:13:04 by camurill         ###   ########.fr       */
+/*   Updated: 2024/06/20 15:53:23 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ char	*get_env(char **env, char *name)
 	int		j;
 
 	i = 0;
-	while (env[j])
+	while (env[i])
 	{
 		j = 0;
 		while (env[i][j] && env[i][j] != '=')
@@ -84,6 +84,7 @@ char	*get_path(char *cmd, char **env)
 		}
 		i++;
 		free(exec);
+		free(path_aux);
 	}
 	free_mat(path_total);
 	free_mat(aux);
