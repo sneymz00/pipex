@@ -6,7 +6,7 @@
 /*   By: camurill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 13:18:38 by camurill          #+#    #+#             */
-/*   Updated: 2024/06/20 16:35:36 by camurill         ###   ########.fr       */
+/*   Updated: 2024/06/26 10:13:12 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	ft_error(int mod, char *ag)
 		perror("Fork: ");
 	else if (mod == 3)
 	{
-		write(2, "zsh: no such file or directory:", 32);
+		write(2, "zsh: no such file or directory: ", 33);
 		ft_putendl_fd(ag, 2);
-		exit(0);
+		exit(1);
 	}
 	exit(1);
 }

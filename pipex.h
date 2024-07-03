@@ -6,7 +6,7 @@
 /*   By: camurill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 13:25:52 by camurill          #+#    #+#             */
-/*   Updated: 2024/06/20 16:33:59 by camurill         ###   ########.fr       */
+/*   Updated: 2024/06/27 19:04:31 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 # define PIPEX_H
 
 # include <unistd.h>
+# include <string.h>
 # include <stdio.h>
 # include <fcntl.h>
+# include <errno.h>
 # include <stdbool.h>
 # include <stdlib.h>
 # include <sys/types.h>

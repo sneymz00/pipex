@@ -13,7 +13,7 @@ SRC_DIR		=		src/
 ###############################################################################
 
 CC 			= 		gcc
-CCFLAGS		= 		-Wall -Wextra -Werror 
+CCFLAGS		= 		-Wall -Wextra -Werror -fsanitize=address 
 
 ###############################################################################
 #									SRC    									  #
@@ -54,7 +54,7 @@ $(OBJS)%.o: $(SRC_DIR)%.c Makefile $(INCLUDE) $(LIBFT)
 clean:
 	@echo "Cleaning up..."
 	@$(RM) $(OBJS)
-	@make -C libreries/libft clean --no-print-directory
+	@make -C libreries/libft fclean --no-print-directory
 
 fclean: clean
 	@echo "Cleaning file..."

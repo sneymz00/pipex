@@ -6,7 +6,7 @@
 /*   By: camurill <camurill@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 22:56:25 by camurill          #+#    #+#             */
-/*   Updated: 2024/06/20 16:05:53 by camurill         ###   ########.fr       */
+/*   Updated: 2024/07/03 17:00:55 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,12 @@ int	open_file(char *file, int type)
 	if (type == 0)
 		fd = open(file, O_RDONLY, 0777);
 	else if (type == 1)
-		fd = open(file, O_WRONLY | O_CREAT | O_TRUNC, 0777);
+		fd = open(file, O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	if (fd == -1)
-		close(0);
+	{
+		perror(file);
+		exit(0);
+	}
 	return (fd);
 }
 
@@ -45,6 +48,8 @@ char	*get_env(char **env, char *name)
 	int		j;
 
 	i = 0;
+	if (!env || !(*env))
+		return (NULL);
 	while (env[i])
 	{
 		j = 0;
@@ -68,27 +73,27 @@ char	*get_path(char *cmd, char **env)
 	char	*exec;
 	char	**path_total;
 	char	*path_aux;
-	char	**aux;
 
 	i = 0;
 	path_total = ty_split(get_env(env, "PATH"), ':');
-	aux = ty_split(cmd, ' ');
-	while (path_total[i])
+	if (!path_total)
+		return (NULL);
+	if (!cmd || *cmd == '\0')
+		return (free_mat(path_total), NULL);
+	while (path_total[i++])
 	{
 		path_aux = my_strjoin(path_total[i], "/");
-		exec = my_strjoin(path_aux, aux[0]);
+		if (!path_aux)
+			return (free_mat(path_total), NULL);
+		exec = my_strjoin(path_aux, cmd);
+		if (!exec)
+			return (free_mat(path_total), free(path_aux), NULL);
 		if (access(exec, F_OK) == 0 && access(exec, X_OK) == 0)
-		{
-			free_mat(aux);
-			return (exec);
-		}
-		i++;
+			return (free_mat(path_total), exec);
 		free(exec);
 		free(path_aux);
 	}
-	free_mat(path_total);
-	free_mat(aux);
-	return (cmd);
+	return (free_mat(path_total), cmd);
 }
 /*
 int main(int ac, char **ag, char **env)

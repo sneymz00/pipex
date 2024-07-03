@@ -6,7 +6,7 @@
 /*   By: camurill <camurill@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 17:39:32 by camurill          #+#    #+#             */
-/*   Updated: 2024/06/20 16:06:35 by camurill         ###   ########.fr       */
+/*   Updated: 2024/06/27 19:14:45 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ char	**ty_split(char const *s, char c)
 	char	**split;
 	int		pos;
 
-	if (!s)
+	if (!s || *s == '\0')
 		return (NULL);
 	i = 0;
 	pos = 0;
