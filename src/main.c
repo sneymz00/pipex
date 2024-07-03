@@ -6,7 +6,7 @@
 /*   By: camurill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 13:18:38 by camurill          #+#    #+#             */
-/*   Updated: 2024/06/26 10:13:12 by camurill         ###   ########.fr       */
+/*   Updated: 2024/07/03 19:54:04 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ int	main(int ac, char **ag, char **env)
 		parent_process(fd, ag, env);
 	close(fd[0]);
 	close(fd[1]);
-	waitpid(pid1, &status, 0);
-	waitpid(pid1, &status, 0);
-	return (0);
+	waitpid(pid1, NULL, 0);
+	waitpid(pid2, &status, 0);
+	status = WEXITSTATUS(status);
+	return (status);
 }

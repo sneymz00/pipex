@@ -6,7 +6,7 @@
 /*   By: camurill <camurill@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 22:56:25 by camurill          #+#    #+#             */
-/*   Updated: 2024/07/03 19:26:20 by camurill         ###   ########.fr       */
+/*   Updated: 2024/07/03 19:52:45 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	open_file(char *file, int type)
 	if (fd == -1)
 	{
 		perror(file);
-		exit(0);
+		exit(1);
 	}
 	return (fd);
 }
