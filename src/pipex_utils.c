@@ -6,7 +6,7 @@
 /*   By: camurill <camurill@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 14:56:08 by camurill          #+#    #+#             */
-/*   Updated: 2024/07/03 17:02:32 by camurill         ###   ########.fr       */
+/*   Updated: 2024/07/03 19:22:26 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	funtion_exe(char *ag, char **env)
 	aux = ty_split(ag, ' ');
 	if (!aux)
 	{
-		write(2, "zsh: permission denied:\n", 25);
+		write(2, "pipex: command not found:\n", 27);
 		exit(126);
 	}
 	if (find_command(aux[0], '/') > 0)
@@ -74,11 +74,6 @@ void	parent_process(int *p_fd, char **ag, char **env)
 {
 	int	fd;
 
-	if (open(ag[1], O_RDONLY) == -1)
-	{
-		open(ag[4], O_CREAT, 0644);
-		exit(0);
-	}
 	fd = open_file(ag[4], 1);
 	if (dup2(fd, STDOUT_FILENO) < 0)
 		ft_error(3, ag[1]);
